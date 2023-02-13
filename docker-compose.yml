@@ -1,19 +1,24 @@
 # version: "3"
 
 volumes:
-  db:
+  auth_db:
+    driver: local
+  ticket_db:
     driver: local
 
 services:
-    # db:
-    #     image: postgres
-    #     environment:
-    #         - POSTGRES_USER=admin
-    #         - POSTGRES_PASSWORD=admin
-    #     ports:
-    #         - "5432:5432"
-    #     volumes:
-    #         - db:/var/lib/postgresql/data
+    auth_storage:
+        image: postgres
+        environment:
+            - POSTGRES_USER=admin
+            - POSTGRES_PASSWORD=admin
+            - PGPASSWORD=admin
+        ports:
+            - "5000:5432"
+        volumes:
+            - auth_db:/var/lib/postgresql/data
+            - ./Storage/Auth/createScript.sql:/var/lib/postgresql/createScript.sql
+            - ./Storage/Auth/run:/docker-entrypoint-initdb.d
     # redis:
     #     restart: on-failure
     #     image: "redis"
