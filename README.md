@@ -45,4 +45,16 @@ By entering container terminal and using psql:
 
 ![result](img/user_accounts.jpg)
 
+## auth cache
+
+### configure docker compose
+
+![result](img/redis-docker-compose.jpg)
+
+### Result
+By using redis cli:
+
+![result](img/redis-test.jpg)
+
 ## ticket storage
+

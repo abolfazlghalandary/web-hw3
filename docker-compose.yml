@@ -19,11 +19,11 @@ services:
             - auth_db:/var/lib/postgresql/data
             - ./Storage/Auth/createScript.sql:/var/lib/postgresql/createScript.sql
             - ./Storage/Auth/run:/docker-entrypoint-initdb.d
-    # redis:
-    #     restart: on-failure
-    #     image: "redis"
-    #     ports:
-    #       - "6379:6379"
+    redis:
+        restart: on-failure
+        image: "redis"
+        ports:
+          - "6379:6379"
     # back:
     #     restart: on-failure
     #     build:
