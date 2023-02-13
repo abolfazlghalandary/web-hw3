@@ -58,3 +58,20 @@ By using redis cli:
 
 ## ticket storage
 
+### create script for table initialization
+
+![create ticket table sql](img/ticket-sql.jpg)
+
+### create shell file
+
+![shell script](img/ticket-shell.jpg)
+
+### configure docker compose file
+
+![docker compose](img/docker-compose3.jpg)
+
+### Result
+By entering container terminal and using psql:
+
+![result](img/ticket-storage-result.jpg)
+
