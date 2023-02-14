@@ -2,11 +2,11 @@ const { Pool, Client } = require('pg')
 const fs = require('fs');
 
 const clientData = {
-    user: 'postgres',
-    host: 'localhost',
-    database: 'dev',
-    password: 'dev',
-    port: 5432,
+    user: 'admin',
+    host: 'ticket_storage',
+    database: 'postgres',
+    password: 'admin',
+    port: 5050,
 }
 
 async function filter_flights(params) {

@@ -75,3 +75,5 @@ By entering container terminal and using psql:
 
 ![result](img/ticket-storage-result.jpg)
 
+# Step 3 - Backend services
+## auth service

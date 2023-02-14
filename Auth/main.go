@@ -51,7 +51,7 @@ type unauthorized_token struct {
 }
 
 var identityKey = "id"
-var port = "8080"
+var port = "8000"
 
 func hash(password string) string {
 	return strconv.FormatUint(fnv1a.HashString64(password), 10)
@@ -65,7 +65,7 @@ type User struct {
 
 func main() {
 	r := gin.Default()
-	dsn := "host=db user=admin password=admin dbname=dev port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+	dsn := "host=auth_storage user=admin password=admin dbname=postgres port=5000 sslmode=disable TimeZone=Asia/Shanghai"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	var validate *validator.Validate = validator.New()
 	var ctx = context.Background()

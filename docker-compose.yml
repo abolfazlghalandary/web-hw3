@@ -1,5 +1,3 @@
-# version: "3"
-
 volumes:
   auth_db:
     driver: local
@@ -37,14 +35,16 @@ services:
         image: "redis"
         ports:
           - "6379:6379"
-    # back:
-    #     restart: on-failure
-    #     build:
-    #         context: ./nodejs
-    # Auth:
-    #     restart: on-failure
-    #     build:
-    #         context: ./Auth
+    ticket:
+        restart: on-failure
+        build:
+            context: ./Ticket
+            dockerfile: ./Dockerfile
+    auth:
+        restart: on-failure
+        build:
+            context: ./Auth
+            dockerfile: ./Dockerfile
     frontend:
         restart: on-failure
         build:

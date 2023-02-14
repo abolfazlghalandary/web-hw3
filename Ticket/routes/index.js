@@ -1,7 +1,7 @@
 let express = require('express');
 var request = require('request');
-const port = 8080
-const localHost = "http://localhost"
+const port = 8000
+const localHost = "auth"
 const url = `${localHost}:${port}/auth/user_info`;
 
 
