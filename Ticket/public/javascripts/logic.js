@@ -6,7 +6,7 @@ const clientData = {
     host: 'ticket_storage',
     database: 'postgres',
     password: 'admin',
-    port: 5050,
+    port: 5432,
 }
 
 async function filter_flights(params) {

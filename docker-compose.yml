@@ -5,18 +5,20 @@ volumes:
     driver: local
 
 services:
-    auth_storage:
+    auth-storage:
         image: postgres
         environment:
             - POSTGRES_USER=admin
             - POSTGRES_PASSWORD=admin
             - PGPASSWORD=admin
         ports:
-            - "5000:5432"
+            - "5432:5432"
         volumes:
             - auth_db:/var/lib/postgresql/data
             - ./Storage/Auth/createScript.sql:/var/lib/postgresql/createScript.sql
             - ./Storage/Auth/run:/docker-entrypoint-initdb.d
+        healthcheck:
+            test: "exit 0"
     ticket_storage:
         image: postgres
         environment:
@@ -35,15 +37,22 @@ services:
         image: "redis"
         ports:
           - "6379:6379"
+    auth:
+        restart: on-failure
+        environment:
+            - GO111MODULE=off
+        build:
+            context: ./Auth
+            dockerfile: ./Dockerfile
+        depends_on:
+            auth-storage:
+                condition: service_healthy
+            redis:
+                condition: service_started
     ticket:
         restart: on-failure
         build:
             context: ./Ticket
-            dockerfile: ./Dockerfile
-    auth:
-        restart: on-failure
-        build:
-            context: ./Auth
             dockerfile: ./Dockerfile
     frontend:
         restart: on-failure

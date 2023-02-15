@@ -65,7 +65,7 @@ type User struct {
 
 func main() {
 	r := gin.Default()
-	dsn := "host=auth_storage user=admin password=admin dbname=postgres port=5000 sslmode=disable TimeZone=Asia/Shanghai"
+	dsn := "host=auth-storage user=admin password=admin dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Shanghai"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	var validate *validator.Validate = validator.New()
 	var ctx = context.Background()
