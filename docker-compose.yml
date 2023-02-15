@@ -26,7 +26,7 @@ services:
             - POSTGRES_PASSWORD=admin
             - PGPASSWORD=admin
         ports:
-            - "5050:5432"
+            - "5433:5432"
         volumes:
             - ticket_db:/var/lib/postgresql/data
             - ./Storage/Ticket/ticket.sql:/var/lib/postgresql/ticket.sql
@@ -51,6 +51,8 @@ services:
                 condition: service_started
     ticket:
         restart: on-failure
+        environment:
+            - PORT=6000
         build:
             context: ./Ticket
             dockerfile: ./Dockerfile

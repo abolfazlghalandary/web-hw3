@@ -112,8 +112,9 @@ CREATE TABLE IF NOT EXISTS purchase
     last_name             VARCHAR,
     flight_serial         INTEGER,
     offer_price           INTEGER,
-    offer_class           VARCHAR
-    -- TODO: transactions
+    offer_class           VARCHAR,
+    transaction_id           INTEGER,
+    transaction_result           INTEGER
 );
 
 -- OFFERS

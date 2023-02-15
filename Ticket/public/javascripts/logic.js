@@ -2,6 +2,7 @@ const { Pool, Client } = require('pg')
 const fs = require('fs');
 
 const clientData = {
+    driver: 'postgres',
     user: 'admin',
     host: 'ticket_storage',
     database: 'postgres',
