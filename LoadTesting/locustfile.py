@@ -1,7 +1,22 @@
 from locust import HttpUser, task
 
-class HelloWorldUser(HttpUser):
+class FrontTest(HttpUser):
     @task
-    def hello_world(self):
-        self.client.get("/hello")
-        self.client.get("/world")
+    def test(self):
+        self.client.get("")
+
+
+class AuthTest(HttpUser):
+    @task
+    def test(self):
+        self.client.get("/auth")
+        self.client.get("/auth/signin?email=ssasdefsddd@sfd.dsdf&password=fslkjfd")
+        self.client.get("/auth/signout")
+
+
+class TicketTest(HttpUser):
+    @task
+    def test(self):
+        self.client.get("/ticket")
+        self.client.get("/ticket/filter_flights")
+        self.client.get("/ticket/validate_buy")

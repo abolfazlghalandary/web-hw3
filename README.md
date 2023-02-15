@@ -110,3 +110,21 @@ By using Postman:
 
 ![result](img/ticket-result.jpg)
 
+# Step 4 - Docker Compose
+
+We used docker compose from the first. So now we will have all the project ready by 'docker-compose up' command.
+
+# Step 5 - Load Test
+
+### locustfile configuration
+
+![locustfile](img/locust-file.jpg)
+
+### open locust web interface and start test
+
+![locustfile](img/locust-web.jpg)
+
+### Result
+
+![result](img/locust-result-chart.jpg)
+![result](img/locust-table.jpg)
