@@ -77,3 +77,36 @@ By entering container terminal and using psql:
 
 # Step 3 - Backend services
 ## auth service
+
+First step is to rewrite hardcoded addresses by service names, then:
+
+### configure Dockerfile
+
+![dockerfile](img/auth-dockerfile.jpg)
+
+### configure docker-compose
+
+![docker-compose](img/auth-docker-compose.jpg)
+
+### Result
+By using Postman:
+
+![result](img/auth-result.jpg)
+
+## ticket service
+
+First step is to rewrite hardcoded addresses by service names, then:
+
+### configure Dockerfile
+
+![ticket-dockerfile](img/ticket-dockerfile.jpg)
+
+### configure docker-compose
+
+![docker-compose](img/ticket-docker-compose.jpg)
+
+### Result
+By using Postman:
+
+![result](img/ticket-result.jpg)
+
